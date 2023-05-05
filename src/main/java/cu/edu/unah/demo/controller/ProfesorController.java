@@ -46,7 +46,7 @@ public class ProfesorController {
 		return ResponseEntity.created(new URI("/Profesor/create/" + result.getId())).body(result);
 	}
 	@PutMapping(path = { "/update" }, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<Profesor> updateCarrera(@RequestBody Profesor profesor) throws URISyntaxException {
+	public ResponseEntity<Profesor> update(@RequestBody Profesor profesor) throws URISyntaxException {
 		if (profesor.getId()==null) {
 			return new ResponseEntity<Profesor>(HttpStatus.NOT_FOUND);
 		}

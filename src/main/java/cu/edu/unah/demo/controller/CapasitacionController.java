@@ -46,7 +46,7 @@ public class CapasitacionController {
 		return ResponseEntity.created(new URI("/Capasitacion/create/" + result.getId())).body(result);
 	}
 	@PutMapping(path = { "/update" }, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<Capasitacion> updateCarrera(@RequestBody Capasitacion capasitacion) throws URISyntaxException {
+	public ResponseEntity<Capasitacion> update(@RequestBody Capasitacion capasitacion) throws URISyntaxException {
 		if (capasitacion.getId()==null) {
 			return new ResponseEntity<Capasitacion>(HttpStatus.NOT_FOUND);
 		}
