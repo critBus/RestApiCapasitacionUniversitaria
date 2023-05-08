@@ -60,7 +60,8 @@ public class AuthoritiesController {
 	public ResponseEntity<Authorities> createAuthorities(
 			@RequestBody Authorities authorities) throws URISyntaxException {
 		Authorities result = authoritiesServices.save(authorities);
-		return ResponseEntity.created(new URI("/Authorities/create/" + result.getAuthoritiesPK())).body(result);
+		return ResponseEntity.created(new URI("/Authorities/create/" + result.getAuthoritiesPK().getAuthority())).body(result);
+		//return ResponseEntity.created(new URI("/Authorities/create/" + result.getAuthoritiesPK())).body(result);
 	}
 
 	@PutMapping(path = { "/update" }, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -70,7 +71,8 @@ public class AuthoritiesController {
 		}
 		try {
 			Authorities result = authoritiesServices.update(authorities);
-			return ResponseEntity.created(new URI("/Authorities/updated/" + result.getAuthoritiesPK())).body(result);
+			//return ResponseEntity.created(new URI("/Authorities/updated/" + result.getAuthoritiesPK())).body(result);
+			return ResponseEntity.created(new URI("/Authorities/updated/" + result.getAuthoritiesPK().getAuthority())).body(result);
 		} catch (EntityNotFoundException e) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
